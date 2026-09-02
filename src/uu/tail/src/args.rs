@@ -329,7 +329,7 @@ impl Settings {
         if let Some(pid) = self.pid {
             if self.follow.is_none() {
                 writeln!(
-                    std::io::stderr().lock(),
+                    std::io::stderr(),
                     "{}: warning: {}",
                     uucore::util_name(),
                     translate!("tail-warning-pid-ignored")

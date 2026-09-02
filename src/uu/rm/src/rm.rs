@@ -57,7 +57,7 @@ impl UError for RmError {}
 /// (e.g. a full device or a closed pipe) into an error instead of
 /// panicking like `println!` would.
 fn write_verbose_line(message: &str) -> UResult<()> {
-    writeln!(io::stdout().lock(), "{message}").map_err(|err| {
+    writeln!(io::stdout(), "{message}").map_err(|err| {
         USimpleError::new(
             1,
             translate!("rm-error-standard-output", "error" => strip_errno(&err)),

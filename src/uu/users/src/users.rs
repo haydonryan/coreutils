@@ -73,7 +73,7 @@ pub fn uumain(args: impl uucore::Args) -> UResult<()> {
 
     if !users.is_empty() {
         users.sort();
-        writeln!(stdout().lock(), "{}", users.join(" "))?;
+        writeln!(stdout(), "{}", users.join(" "))?;
     }
 
     Ok(())

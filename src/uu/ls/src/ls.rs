@@ -919,8 +919,7 @@ impl<'a> PathData<'a> {
                 match get_metadata_with_deref_opt(self.path(), self.must_dereference) {
                     Err(err) => {
                         // FIXME: A bit tricky to propagate the result here
-                        let mut out: std::io::StdoutLock<'static> = stdout().lock();
-                        let _ = out.flush();
+                        let _ = stdout().flush();
                         let errno = err.raw_os_error().unwrap_or(1i32);
                         // a bad fd will throw an error when dereferenced,
                         // but GNU will not throw an error until a bad fd "dir"
